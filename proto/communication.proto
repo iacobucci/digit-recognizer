@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package generic;
+
+service CommunicationService {
+  rpc sendData (DataRequest) returns (DataResponse) {}
+}
+
+message DataRequest {
+  string input = 1;
+}
+
+message DataResponse {
+  int32 output = 1;
+}
