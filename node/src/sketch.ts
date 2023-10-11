@@ -74,7 +74,6 @@ const sketch = (p: p5) => {
 			if (this.oldMouseY == undefined)
 				this.oldMouseY = p.mouseY;
 
-
 			for (let px of this.pixels) {
 				px.display();
 			}
@@ -82,8 +81,8 @@ const sketch = (p: p5) => {
 			this.lines();
 
 			// get all pixels in the line between the old and the new mouse position
-			let x1 = Math.floor(this.oldMouseX / p.width * this.w);
-			let y1 = Math.floor(this.oldMouseY / p.height * this.h);
+			let x1 = Math.floor((this.oldMouseX ?? 0) / p.width * this.w);
+			let y1 = Math.floor((this.oldMouseY ?? 0) / p.height * this.h);
 			let x2 = Math.floor(p.mouseX / p.width * this.w);
 			let y2 = Math.floor(p.mouseY / p.height * this.h);
 

@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "nn"
+version = "0.1.0"
+description = ""
+authors = ["lhuang19 <70118730+lhuang19@users.noreply.github.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+grpcio-tools = "^1.57.0"
+micrograd = "0.1.0"
+micrograd_utils = "^0.0.4"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+repl="nn.testing:repl"
+train="nn.training:train"
+serve="server.main:serve"

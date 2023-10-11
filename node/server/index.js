@@ -26,9 +26,11 @@ const client = (0, connect_1.createPromiseClient)(communication_connect_1.Commun
 app.use(express_1.default.static("dist"));
 app.post("/api/send", (req, res) => {
     req.on("data", (data) => __awaiter(void 0, void 0, void 0, function* () {
-        console.log(data.toString());
+        data = JSON.parse(data.toString()).data;
+        console.log("request: " + data.toString());
         const rpc_request = new communication_pb_1.DataRequest({ input: data.toString() });
         const rpc_response = yield client.sendData(rpc_request);
+        console.log("response: " + rpc_response.output);
         res.json({ message: rpc_response.output });
     }));
 });
